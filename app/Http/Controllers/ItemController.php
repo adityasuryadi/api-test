@@ -20,7 +20,7 @@ class ItemController extends Controller
                 return response()->json($validator->errors(), 422);
             }
 
-            $checklist = Item::create(['name'=>$request->itemName,'checklist_id'=>$id]);
+            $checklist = Item::create(['name'=>$request->itemName,'cheklist_id'=>$id]);
             if($checklist) {
                 return response()->json(['response_code'=>200,'response_status'=>"OK",'data'=>[]], 200);
             }

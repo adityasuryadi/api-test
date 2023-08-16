@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChecklistController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,6 @@ Route::middleware('jwt.verify')->group(function () {
     Route::get('checklist', [ChecklistController::class,'lists'])->name('checklist.lists');
     Route::post('checklist', [ChecklistController::class,'create'])->name('checklist.create');
     Route::delete('/checklist/{id}', [ChecklistController::class,'destroy'])->name('checklist.delete');
+
+    Route::post('checklist/{id}/item', [ItemController::class,'create'])->name('item.create');
 });
